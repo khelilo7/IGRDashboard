@@ -1,5 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { ChartsModule } from "ng2-charts";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -10,6 +11,7 @@ import { StatsComponent } from "./components/stats/stats.component";
 import { ReportsComponent } from "./components/reports/reports.component";
 import { UploadComponent } from "./components/upload/upload.component";
 import { ProfilComponent } from "./components/profil/profil.component";
+import { InputTableComponent } from './components/prediction/input-table/input-table.component';
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/predictions", pathMatch: "full" },
@@ -28,9 +30,15 @@ const appRoutes: Routes = [
     StatsComponent,
     ReportsComponent,
     UploadComponent,
-    ProfilComponent
+    ProfilComponent,
+    InputTableComponent
   ],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes), AppRoutingModule],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
+    ChartsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
