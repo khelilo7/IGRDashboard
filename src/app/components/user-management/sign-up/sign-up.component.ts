@@ -2,14 +2,14 @@ import { Component, OnInit } from "@angular/core";
 import { NavbarServiceService } from "src/app/services/navbar-service.service";
 
 @Component({
-  selector: "app-profil",
-  templateUrl: "./profil.component.html",
-  styleUrls: ["./profil.component.scss"]
+  selector: "app-sign-up",
+  templateUrl: "./sign-up.component.html",
+  styleUrls: ["./sign-up.component.scss"]
 })
-export class ProfilComponent implements OnInit {
+export class SignUpComponent implements OnInit {
   constructor(public nav: NavbarServiceService) {}
 
   ngOnInit() {
-    this.nav.show();
+    this.nav.hide();
   }
 }

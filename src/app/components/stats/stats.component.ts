@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Chart } from "chart.js";
+import { NavbarServiceService } from "src/app/services/navbar-service.service";
 
 @Component({
   selector: "app-stats",
@@ -27,7 +28,9 @@ export class StatsComponent implements OnInit {
     { data: [86, 29, 88, 19, 65], label: "Series B" }
   ];
 
-  constructor() {}
+  constructor(public nav: NavbarServiceService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.nav.show();
+  }
 }

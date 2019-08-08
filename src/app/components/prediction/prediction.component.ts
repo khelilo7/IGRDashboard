@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { NavbarServiceService } from "src/app/services/navbar-service.service";
 
 @Component({
   selector: "app-prediction",
@@ -6,9 +7,11 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./prediction.component.scss"]
 })
 export class PredictionComponent implements OnInit {
-  constructor() {}
+  constructor(public nav: NavbarServiceService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.nav.show();
+  }
 
   submit(e) {
     console.log(e);
