@@ -7,39 +7,55 @@
       using the table down below.
     </p>
     <hr class="my-4" />
-    <p>
+    <h5 class="text-center my-4">
       Please make sure you had all the rows needed for the process, or you will
       be getting bad results.
-    </p>
+    </h5>
+    <div class="custom-file mb-3">
+      <input
+        (change)="onFileSelected($event)"
+        type="file"
+        name="file"
+        id="file"
+        class="custom-file-input"
+      />
+      <label for="file" class="custom-file-label">Choose File</label>
+    </div>
     <input
+      (click)="submit($event)"
+      type="submit"
+      value="Submit"
+      class="btn btn-primary btn-block"
+    />
+    <!-- <input
       type="file"
-      (change)="onFileSelected($event)"
+      
       class="form-control-file"
       id="exampleFormControlFile1"
     />
     <button (click)="submit($event)" class="btn btn-primary mt-md-4">
       Submit
-    </button>
+    </button> -->
   </div>
 </div>
-<div class="container-fluid mb-md-4">
+<div class="container-fluid mb-md-4" *ngIf="show">
   <div class="row">
     <div class="col-md-12">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">{{ Name }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ analyse }}</h6>
+          <h5 class="card-title">{{ analyse.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ analyse.type }}</h6>
           <div class="card-text mt-md-2">
-            <p>Etat : {{ state }}</p>
-            <p>Zones thérapeutiques : {{ Zones }}</p>
-            <p>Nom du médicament :{{ drogue }}</p>
-            <p>Posologie : {{ Posologie }}</p>
+            <p>Etat : {{ analyse.state }}</p>
+            <p>Zones thérapeutiques : {{ analyse.zones }}</p>
+            <p>Nom du médicament :{{ analyse.drogue }}</p>
+            <p>Posologie : {{ analyse.dose }}</p>
           </div>
           <h5>Taux de prothrombine :</h5>
-          <p>{{ tp }}%</p>
+          <p>{{ analyse.tp }}%</p>
           <br />
           <h5>INR :</h5>
-          <p>{{ INR }}</p>
+          <p>{{ analyse.INR }}</p>
           <a href="#" class="card-link">Save</a>
         </div>
       </div>
