@@ -47,7 +47,14 @@
         routerLinkActive="active"
         href="#"
         class="nav-item nav-link"
-        >Profil</a
+        >{{ username }}</a
+      >
+      <a
+        (click)="logout()"
+        routerLinkActive="active"
+        href="#"
+        class="nav-item nav-link"
+        >logout</a
       >
     </div>
   </div>

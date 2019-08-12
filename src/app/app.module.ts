@@ -16,6 +16,8 @@ import { InputTableComponent } from "./components/prediction/input-table/input-t
 import { CardComponent } from "./components/stats/card/card.component";
 import { SignInComponent } from "./components/user-management/sign-in/sign-in.component";
 import { SignUpComponent } from "./components/user-management/sign-up/sign-up.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { UserService } from "./services/user.service";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/predictions", pathMatch: "full" },
@@ -47,9 +49,11 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AppRoutingModule,
     ChartsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
