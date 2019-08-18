@@ -1,1 +1,32 @@
-<p>upload works!</p>
+<div class="container-fluid mt-md-2">
+  <div class="jumbotron">
+    <h1 class="display-4">Input Data</h1>
+    <p class="lead">
+      Here you can input your data in the form of CSV file containing all the
+      data needed for the prediction.
+    </p>
+    <hr class="my-4" />
+    <p>
+      Please make sure you had all the rows needed for the process, or you will
+      be getting bad results.
+    </p>
+    <div class="custom-file mb-3">
+      <input
+        (change)="onFileSelected($event)"
+        type="file"
+        name="file"
+        id="file"
+        class="custom-file-input"
+      />
+      <label for="file" class="custom-file-label">{{
+        name || "Choose File"
+      }}</label>
+    </div>
+    <input
+      (click)="submit($event)"
+      type="submit"
+      value="Submit"
+      class="btn btn-primary btn-block"
+    />
+  </div>
+</div>

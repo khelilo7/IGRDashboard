@@ -45,7 +45,6 @@ export class PredictionComponent implements OnInit {
   }
 
   submit(e) {
-    console.log(this.selectedFilePath);
     const fd = new FormData();
     fd.append("PDF", this.selectedFile, this.selectedFile.name);
     this.pred.setFd(fd);
