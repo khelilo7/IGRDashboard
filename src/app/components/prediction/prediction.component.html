@@ -11,10 +11,24 @@
       Please make sure you had all the rows needed for the process, or you will
       be getting bad results.
     </p>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1" />
-    <button (click)="submit($event)" class="btn btn-primary mt-md-4">
-      Submit
-    </button>
+    <div class="custom-file mb-3">
+      <input
+        (change)="onFileSelected($event)"
+        type="file"
+        name="file"
+        id="file"
+        class="custom-file-input"
+      />
+      <label for="file" class="custom-file-label">{{
+        name || "Choose File"
+      }}</label>
+    </div>
+    <input
+      (click)="submit($event)"
+      type="submit"
+      value="Submit"
+      class="btn btn-primary btn-block"
+    />
   </div>
   <input-table class="mt-md-2"></input-table>
 </div>

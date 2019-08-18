@@ -14,52 +14,132 @@
         class="table table-bordered table-responsive-md table-striped text-center"
       >
         <tr>
-          <th class="text-center">Person Name</th>
-          <th class="text-center">Age</th>
-          <th class="text-center">Company Name</th>
-          <th class="text-center">Country</th>
-          <th class="text-center">City</th>
-          <th class="text-center">Remove</th>
+          <th class="text-center">Drogue</th>
+          <th class="text-center">Dose</th>
+          <th class="text-center">Solvant</th>
+          <th class="text-center">Sigle</th>
+          <th class="text-center">Service</th>
+          <th class="text-center">protocole</th>
+          <th class="text-center">statut_proto</th>
+          <th class="text-center">OK_chimio</th>
+          <th class="text-center">OK_fab</th>
+          <th class="text-center">validation_pharma</th>
+          <th class="text-center">Th</th>
+          <th class="text-center">Jour</th>
+          <th class="text-center">mois</th>
+          <th class="text-center">drogue_groupe</th>
         </tr>
         <tr *ngFor="let person of personList; let id = index">
           <td>
             <span
-              (keyup)="changeValue(id, 'name', $event)"
-              (blur)="updateList(id, 'name', $event)"
+              (keyup)="changeValue(id, 'Drogue', $event)"
+              (blur)="updateList(id, 'Drogue', $event)"
               contenteditable="true"
-              >{{ person.name }}</span
+              >{{ person.Drogue }}</span
             >
           </td>
           <td>
             <span
               contenteditable="true"
-              (keyup)="changeValue(id, 'age', $event)"
-              (blur)="updateList(id, 'age', $event)"
-              >{{ person.age }}</span
+              (keyup)="changeValue(id, 'Dose', $event)"
+              (blur)="updateList(id, 'Dose', $event)"
+              >{{ person.Dose }}</span
             >
           </td>
           <td>
             <span
               contenteditable="true"
-              (keyup)="changeValue(id, 'companyName', $event)"
-              (blur)="updateList(id, 'companyName', $event)"
-              >{{ person.companyName }}</span
+              (keyup)="changeValue(id, 'Solvant', $event)"
+              (blur)="updateList(id, 'Solvant', $event)"
+              >{{ person.Solvant }}</span
             >
           </td>
           <td>
             <span
               contenteditable="true"
-              (keyup)="changeValue(id, 'country', $event)"
-              (blur)="updateList(id, 'country', $event)"
-              >{{ person.country }}</span
+              (keyup)="changeValue(id, 'Sigle', $event)"
+              (blur)="updateList(id, 'Sigle', $event)"
+              >{{ person.Sigle }}</span
             >
           </td>
           <td>
             <span
               contenteditable="true"
-              (keyup)="changeValue(id, 'city', $event)"
-              (blur)="updateList(id, 'city', $event)"
-              >{{ person.city }}</span
+              (keyup)="changeValue(id, 'Service', $event)"
+              (blur)="updateList(id, 'Service', $event)"
+              >{{ person.Service }}</span
+            >
+          </td>
+          <td>
+            <span
+              (keyup)="changeValue(id, 'protocole', $event)"
+              (blur)="updateList(id, 'protocole', $event)"
+              contenteditable="true"
+              >{{ person.protocole }}</span
+            >
+          </td>
+          <td>
+            <span
+              contenteditable="true"
+              (keyup)="changeValue(id, 'statut_proto', $event)"
+              (blur)="updateList(id, 'statut_proto', $event)"
+              >{{ person.statut_proto }}</span
+            >
+          </td>
+          <td>
+            <span
+              contenteditable="true"
+              (keyup)="changeValue(id, 'OK_chimio', $event)"
+              (blur)="updateList(id, 'OK_chimio', $event)"
+              >{{ person.OK_chimio }}</span
+            >
+          </td>
+          <td>
+            <span
+              contenteditable="true"
+              (keyup)="changeValue(id, 'OK_fab', $event)"
+              (blur)="updateList(id, 'OK_fab', $event)"
+              >{{ person.OK_fab }}</span
+            >
+          </td>
+          <td>
+            <span
+              contenteditable="true"
+              (keyup)="changeValue(id, 'validation_pharma', $event)"
+              (blur)="updateList(id, 'validation_pharma', $event)"
+              >{{ person.validation_pharma }}</span
+            >
+          </td>
+          <td>
+            <span
+              (keyup)="changeValue(id, 'Th', $event)"
+              (blur)="updateList(id, 'Th', $event)"
+              contenteditable="true"
+              >{{ person.Th }}</span
+            >
+          </td>
+          <td>
+            <span
+              contenteditable="true"
+              (keyup)="changeValue(id, 'Jour', $event)"
+              (blur)="updateList(id, 'Jour', $event)"
+              >{{ person.Jour }}</span
+            >
+          </td>
+          <td>
+            <span
+              contenteditable="true"
+              (keyup)="changeValue(id, 'mois', $event)"
+              (blur)="updateList(id, 'mois', $event)"
+              >{{ person.mois }}</span
+            >
+          </td>
+          <td>
+            <span
+              contenteditable="true"
+              (keyup)="changeValue(id, 'drogue_groupe', $event)"
+              (blur)="updateList(id, 'drogue_groupe', $event)"
+              >{{ person.drogue_groupe }}</span
             >
           </td>
           <td>

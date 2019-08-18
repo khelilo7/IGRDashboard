@@ -18,6 +18,9 @@ import { SignInComponent } from "./components/user-management/sign-in/sign-in.co
 import { SignUpComponent } from "./components/user-management/sign-up/sign-up.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { UserService } from "./services/user.service";
+import { StatsService } from "./services/stats.service";
+import { PredictionService } from "./services/prediction.service";
+import { ResultComponent } from "./components/prediction/result/result.component";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/predictions", pathMatch: "full" },
@@ -27,7 +30,8 @@ const appRoutes: Routes = [
   { path: "upload", component: UploadComponent },
   { path: "profil", component: ProfilComponent },
   { path: "sign-in", component: SignInComponent },
-  { path: "sign-up", component: SignUpComponent }
+  { path: "sign-up", component: SignUpComponent },
+  { path: "result", component: ResultComponent }
 ];
 
 @NgModule({
@@ -42,7 +46,8 @@ const appRoutes: Routes = [
     InputTableComponent,
     CardComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, StatsService, PredictionService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

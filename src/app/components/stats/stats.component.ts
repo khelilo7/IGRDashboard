@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { Chart } from "chart.js";
+import { ChartType, ChartOptions } from "chart.js";
+import { Label } from "ng2-charts";
 import { NavbarServiceService } from "src/app/services/navbar-service.service";
+import { StatsService } from "src/app/services/stats.service";
 
 @Component({
   selector: "app-stats",
@@ -13,24 +15,125 @@ export class StatsComponent implements OnInit {
     responsive: true
   };
   public barChartLabels = [
-    "2006",
-    "2007",
-    "2008",
-    "2009",
-    "2010",
-    "2011",
-    "2012"
+    "Dispensee",
+    "Reaffecte",
+    "Jetee",
+    "Affectee sur stock",
+    "Préparee controlee",
+    "Préparee non controlee"
   ];
   public barChartType = "bar";
   public barChartLegend = true;
-  public barChartData = [
-    { data: [66, 69, 81, 190, 55], label: "Series A" },
-    { data: [86, 29, 88, 19, 65], label: "Series B" }
+  public barChartData = [];
+
+  public barChartLabels2 = ["Retard", "Delais OK"];
+  public barChartData2 = [
+    { data: [65, 59, 80, 81, 56, 55, 40], label: "Series A" },
+    { data: [28, 48, 40, 19, 86, 27, 90], label: "Series B" }
   ];
 
-  constructor(public nav: NavbarServiceService) {}
+  // Pie
+  public pieChartOptions: ChartOptions = {
+    responsive: true,
+    legend: {
+      position: "top"
+    },
+    plugins: {
+      datalabels: {
+        formatter: (value, ctx) => {
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label;
+        }
+      }
+    }
+  };
+  public pieChartLabels: Label[] = [
+    ["Download", "Sales"],
+    ["In", "Store", "Sales"],
+    "Mail Sales"
+  ];
+  public pieChartData: number[] = [300, 500, 100];
+  public pieChartType: ChartType = "pie";
+  public pieChartLegend = true;
+  public pieChartColors = [
+    {
+      backgroundColor: [
+        "rgba(255,0,0,0.3)",
+        "rgba(0,255,0,0.3)",
+        "rgba(0,0,255,0.3)"
+      ]
+    }
+  ];
+
+  no_prep = 0;
+  prep_retard = 0;
+  prep_jetee = 0;
+
+  constructor(public nav: NavbarServiceService, private stats: StatsService) {}
 
   ngOnInit() {
     this.nav.show();
+    this.getVars();
+    this.getStatsStatut();
+    this.getStatsRetard();
+  }
+
+  getVars() {
+    this.stats
+      .getVars()
+      .subscribe(data => this.changeData(data), error => console.log(error));
+  }
+
+  getStatsStatut() {
+    this.stats
+      .getStatsStatut()
+      .subscribe(
+        data => this.setStatutChart(data),
+        error => console.log(error)
+      );
+  }
+
+  getStatsRetard() {
+    this.stats
+      .getStatsRetard()
+      .subscribe(
+        data => this.setRetardChart(data),
+        error => console.log(error)
+      );
+  }
+
+  changeData(data) {
+    this.no_prep = data.no_prep;
+    this.prep_retard = data.prep_retard;
+    this.prep_jetee = data.prep_jetee;
+  }
+
+  setStatutChart(d) {
+    var bcd = [];
+    for (var i = 0; i < d.length; i++) {
+      bcd.push({
+        data: [
+          d[i]["Dispensee"],
+          d[i]["Reaffecte"],
+          d[i]["Jetee"],
+          d[i]["Affectee sur stock"],
+          d[i]["Préparee controlee"],
+          d[i]["Préparee non controlee"]
+        ],
+        label: d[i].annee
+      });
+    }
+    this.barChartData = bcd;
+  }
+
+  setRetardChart(d) {
+    var bcd = [];
+    for (var i = 0; i < d.length; i++) {
+      bcd.push({
+        data: [d[i]["Retard"], d[i]["Delais OK"]],
+        label: d[i].annee
+      });
+    }
+    this.barChartData2 = bcd;
   }
 }

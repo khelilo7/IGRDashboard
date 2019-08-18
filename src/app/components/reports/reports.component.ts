@@ -37,7 +37,7 @@ export class ReportsComponent implements OnInit {
     const fd = new FormData();
     fd.append("PDF", this.selectedFile, this.selectedFile.name);
     this.http
-      .post("http://localhost:5000/reports/upload", fd)
+      .post("http://localhost:3000/reports/upload", fd)
       .subscribe(res => {
         this.analyse = res;
         this.show = true;

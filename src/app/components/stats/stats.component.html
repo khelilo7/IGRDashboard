@@ -1,15 +1,30 @@
 <div class="container-fluid mt-md-2">
   <div class="jumbotron row">
-    <card class="col" title="Meee"></card>
-    <card class="col" title="You"></card>
-    <card class="col" title="US"></card>
-    <card class="col" title="yay"></card>
+    <card
+      class="col"
+      title="{{ no_prep }}"
+      subtitle="Prépartion"
+      text="Ce chiffre indique le nombre de préparation pendans les 3 derniers années"
+    ></card>
+    <card
+      class="col"
+      title="{{ prep_retard }}"
+      subtitle="Prépartion"
+      text="Ce chiffre indique le nombre de préparation en retard pendans les 3 derniers années"
+    ></card>
+    <card
+      class="col"
+      title="{{ prep_jetee }}"
+      subtitle="Prépartion"
+      text="Ce chiffre indique le nombre de préparation jetée pendans les 3 derniers années"
+    ></card>
   </div>
 </div>
 
 <div class="container-fluid mt-md-2 mb-md-4">
   <div class="row">
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 col-sm-12">
       <canvas
         baseChart
         [datasets]="barChartData"
@@ -19,6 +34,34 @@
         [chartType]="barChartType"
       >
       </canvas>
+    </div>
+    <div class="col-md-12">
+      <hr class="my-4 " />
+    </div>
+    <div class="col-md-6 col-sm-12 pt-md-4 ">
+      <canvas
+        baseChart
+        [datasets]="barChartData2"
+        [labels]="barChartLabels2"
+        [options]="barChartOptions2"
+        [legend]="barChartlegend"
+        [chartType]="barChartType"
+      >
+      </canvas>
+    </div>
+    <div class="col-md-6 col-sm-12 pt-md-4 ">
+      <div class="chart">
+        <canvas
+          baseChart
+          [data]="pieChartData"
+          [labels]="pieChartLabels"
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [colors]="pieChartColors"
+          [legend]="pieChartLegend"
+        >
+        </canvas>
+      </div>
     </div>
   </div>
 </div>

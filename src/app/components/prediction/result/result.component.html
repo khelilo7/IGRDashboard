@@ -1,0 +1,26 @@
+<div *ngIf="loading; else loaded">
+  loading ...
+</div>
+
+<ng-template #loaded>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Ordo N</th>
+        <th scope="col">Retard</th>
+        <th scope="col">Statut</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of data; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          {{ d.ordo }}
+        </td>
+        <td>{{ d.Retard | number }}</td>
+        <td>{{ d.Statut | number }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
