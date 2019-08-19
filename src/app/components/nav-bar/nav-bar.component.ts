@@ -14,7 +14,13 @@ export class NavBarComponent implements OnInit {
     public nav: NavbarServiceService,
     private _router: Router,
     private _user: UserService
-  ) {
+  ) {}
+
+  addName(data) {
+    this.username = data.username;
+  }
+
+  ngOnInit() {
     this._user
       .user()
       .subscribe(
@@ -22,12 +28,6 @@ export class NavBarComponent implements OnInit {
         error => this._router.navigate(["/sign-in"])
       );
   }
-
-  addName(data) {
-    this.username = data.username;
-  }
-
-  ngOnInit() {}
 
   logout() {
     this._user.logout().subscribe(

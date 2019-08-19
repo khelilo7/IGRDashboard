@@ -27,4 +27,11 @@ export class StatsService {
       headers: new HttpHeaders().append("Content-Type", "application/json")
     });
   }
+
+  getStatsTh() {
+    return this._http.get("http://127.0.0.1:3000/stats/th", {
+      observe: "body",
+      headers: new HttpHeaders().append("Content-Type", "application/json")
+    });
+  }
 }

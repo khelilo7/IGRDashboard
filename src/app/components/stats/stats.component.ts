@@ -60,7 +60,13 @@ export class StatsComponent implements OnInit {
       backgroundColor: [
         "rgba(255,0,0,0.3)",
         "rgba(0,255,0,0.3)",
-        "rgba(0,0,255,0.3)"
+        "rgba(0,0,255,0.3)",
+        "rgba(0,255,255,0.3)",
+        "rgba(255,0,255,0.3)",
+        "rgba(255,100,100,0.3)",
+        "rgba(0,0,0,0.3)",
+        "rgba(100,255,100,0.3)",
+        "rgba(100,200,0,0.3)"
       ]
     }
   ];
@@ -76,6 +82,7 @@ export class StatsComponent implements OnInit {
     this.getVars();
     this.getStatsStatut();
     this.getStatsRetard();
+    this.getStatsTh();
   }
 
   getVars() {
@@ -98,8 +105,14 @@ export class StatsComponent implements OnInit {
       .getStatsRetard()
       .subscribe(
         data => this.setRetardChart(data),
-        error => console.log(error)
+        error => console.error(error)
       );
+  }
+
+  getStatsTh() {
+    this.stats
+      .getStatsTh()
+      .subscribe(data => this.setPieChart(data), error => console.error(error));
   }
 
   changeData(data) {
@@ -135,5 +148,19 @@ export class StatsComponent implements OnInit {
       });
     }
     this.barChartData2 = bcd;
+  }
+
+  setPieChart(data) {
+    var keys = [];
+    var values = [];
+    for (var i in data) {
+      keys.push(Object.keys(data[i])[0]);
+      values.push(Object.values(data[i])[0]);
+    }
+    console.log(keys);
+    console.log(values);
+
+    this.pieChartLabels = keys;
+    this.pieChartData = values;
   }
 }

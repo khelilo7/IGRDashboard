@@ -3,24 +3,30 @@
 </div>
 
 <ng-template #loaded>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Ordo N</th>
-        <th scope="col">Retard</th>
-        <th scope="col">Statut</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let d of data; index as i">
-        <th scope="row">{{ i + 1 }}</th>
-        <td>
-          {{ d.ordo }}
-        </td>
-        <td>{{ d.Retard | number }}</td>
-        <td>{{ d.Statut | number }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="container-fluid mb-md-4">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Ordo N</th>
+              <th scope="col">Retard</th>
+              <th scope="col">Statut</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let d of data; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>
+                {{ d.ordo }}
+              </td>
+              <td>{{ d.Retard | number }}</td>
+              <td>{{ d.Statut | number }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </ng-template>
