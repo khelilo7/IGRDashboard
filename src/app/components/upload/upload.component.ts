@@ -3,6 +3,7 @@ import { NavbarServiceService } from "src/app/services/navbar-service.service";
 import { UserService } from "src/app/services/user.service";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
+import { UploadService } from "src/app/services/upload.service";
 
 @Component({
   selector: "app-upload",
@@ -17,6 +18,7 @@ export class UploadComponent implements OnInit {
     public nav: NavbarServiceService,
     private _user: UserService,
     private _router: Router,
+    private upload: UploadService,
     private http: HttpClient
   ) {
     this._user
@@ -42,7 +44,10 @@ export class UploadComponent implements OnInit {
   submit(e) {
     const fd = new FormData();
     fd.append("PDF", this.selectedFile, this.selectedFile.name);
+    this.upload
+      .getResult(fd)
+      .subscribe(data => console.log(data), error => console.error(error));
     //call to service to send the file
-    this._router.navigate(["/result/train"]);
+    //this._router.navigate(["/result/train"]);
   }
 }

@@ -12,9 +12,6 @@ export class PredictionService {
     return this.http.post("http://localhost:3000/predict/upload", fd);
   }
 
-  test() {
-    return this.http.get("http://localhost:3000/predict/test");
-  }
   setFd(_fd) {
     this.fd = _fd;
   }

@@ -19,7 +19,6 @@ export class PredictionComponent implements OnInit {
     public nav: NavbarServiceService,
     private _user: UserService,
     private _router: Router,
-    private http: HttpClient,
     private pred: PredictionService
   ) {
     this._user
