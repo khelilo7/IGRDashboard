@@ -49,8 +49,10 @@
                   <label for="select" class="col-4 col-form-label">Role</label>
                   <div class="col-8">
                     <select id="select" name="select" class="custom-select">
-                      <option value="admin">Admin</option>
-                      <option value="pharmacien" selected>Pharmacien</option>
+                      <option value="{{ role }}" selected>{{ role }}</option>
+                      <option *ngIf="bool" value="pharmacien"
+                        >Pharmacien</option
+                      >
                     </select>
                   </div>
                 </div>

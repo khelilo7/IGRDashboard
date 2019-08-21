@@ -11,6 +11,8 @@ import { UserService } from "src/app/services/user.service";
 export class ProfilComponent implements OnInit {
   username = "";
   email = "";
+  role = "";
+  bool: Boolean = false;
 
   constructor(
     public nav: NavbarServiceService,
@@ -21,6 +23,8 @@ export class ProfilComponent implements OnInit {
   addData(data) {
     this.email = data.email;
     this.username = data.username;
+    this.role = data.role;
+    this.bool = this.role == "Admin";
     console.log(data);
   }
   ngOnInit() {

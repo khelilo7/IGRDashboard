@@ -10,6 +10,7 @@ import { UserService } from "src/app/services/user.service";
 })
 export class NavBarComponent implements OnInit {
   username: String = "";
+  bool: Boolean = false;
   constructor(
     public nav: NavbarServiceService,
     private _router: Router,
@@ -18,6 +19,7 @@ export class NavBarComponent implements OnInit {
 
   addName(data) {
     this.username = data.username;
+    this.bool = data.role == "Admin";
   }
 
   ngOnInit() {
