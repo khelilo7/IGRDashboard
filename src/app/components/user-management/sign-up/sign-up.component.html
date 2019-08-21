@@ -28,16 +28,18 @@
     />
     <label for="inputUsername">Username</label>
   </div>
+
   <div class="form-label-group">
     <input
       formControlName="password"
       type="password"
       id="inputPassword"
       class="form-control"
-      placeholder="Email address"
+      placeholder="Password"
       required
       autofocus
     />
+
     <label for="inputPassword">Password</label>
   </div>
 
@@ -52,9 +54,16 @@
     />
     <label for="inputCpass">Repeat Password</label>
   </div>
-
-  <div class="checkbox mb-3">
-    <label> <input type="checkbox" value="remember-me" /> Remember me </label>
+  <div class="form-label-group">
+    <select
+      formControlName="role"
+      class="form-control form-control-lg"
+      id="select"
+      required
+    >
+      <option>Pharmacien</option>
+      <option>Admin</option>
+    </select>
   </div>
   <button
     (click)="register()"
