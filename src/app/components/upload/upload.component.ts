@@ -15,6 +15,9 @@ export class UploadComponent implements OnInit {
   username = "";
   name = "";
   year = 2019;
+  text = "";
+  bool = false;
+  autohide = true;
   constructor(
     public nav: NavbarServiceService,
     private _user: UserService,
@@ -46,13 +49,17 @@ export class UploadComponent implements OnInit {
     this.year = event.target.value;
   }
 
+  setText(data) {
+    this.text = <string>data.body;
+    this.bool = true;
+  }
+
   submit(e) {
     const fd = new FormData();
     fd.append("PDF", this.selectedFile, this.selectedFile.name);
     this.upload
       .getResult(fd)
-      .subscribe(data => console.log(data), error => console.error(error));
-    //call to service to send the file
+      .subscribe(data => this.setText(data), error => console.error(error));
     //this._router.navigate(["/result/train"]);
   }
 }
