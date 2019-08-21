@@ -1,5 +1,5 @@
 <div *ngIf="loading; else loaded">
-  loading ...
+  <div class="cen ld ld-hourglass" style="font-size:64px;color:#8da"></div>
 </div>
 
 <ng-template #loaded>
@@ -28,5 +28,6 @@
         </table>
       </div>
     </div>
+    <button class="btn btn-success " (click)="import()">CSV</button>
   </div>
 </ng-template>

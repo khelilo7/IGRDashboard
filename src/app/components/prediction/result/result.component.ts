@@ -3,6 +3,7 @@ import { PredictionService } from "src/app/services/prediction.service";
 import { UserService } from "src/app/services/user.service";
 import { NavbarServiceService } from "src/app/services/navbar-service.service";
 import { Router } from "@angular/router";
+import { CsvDataService } from "src/app/services/csv-data.service";
 
 @Component({
   selector: "app-result",
@@ -42,5 +43,9 @@ export class ResultComponent implements OnInit {
 
   loadData(data) {
     this.data = data;
+  }
+
+  import() {
+    CsvDataService.exportToCsv("result.csv", this.data);
   }
 }

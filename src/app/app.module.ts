@@ -21,6 +21,7 @@ import { UserService } from "./services/user.service";
 import { StatsService } from "./services/stats.service";
 import { PredictionService } from "./services/prediction.service";
 import { ResultComponent } from "./components/prediction/result/result.component";
+import { UploadService } from "./services/upload.service";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/predictions", pathMatch: "full" },
@@ -58,7 +59,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [UserService, StatsService, PredictionService],
+  providers: [UserService, StatsService, PredictionService, UploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
