@@ -21,6 +21,21 @@
       <label for="file" class="custom-file-label">{{
         name || "Choose File"
       }}</label>
+      <!-- <input (change)="changeYear($event)" type="text" name="year" id="year" />
+      <label for="year">{{ year || "Choose a Year" }}</label> -->
+    </div>
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        (change)="changeYear($event)"
+        placeholder="Year"
+        aria-label="Year"
+        aria-describedby="basic-addon2"
+      />
+      <div class="input-group-append">
+        <span class="input-group-text" id="basic-addon2">Year of the data</span>
+      </div>
     </div>
     <input
       (click)="submit($event)"

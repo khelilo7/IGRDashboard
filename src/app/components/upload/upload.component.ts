@@ -14,6 +14,7 @@ export class UploadComponent implements OnInit {
   selectedFile: File = null;
   username = "";
   name = "";
+  year = 2019;
   constructor(
     public nav: NavbarServiceService,
     private _user: UserService,
@@ -39,6 +40,10 @@ export class UploadComponent implements OnInit {
   onFileSelected(event) {
     this.selectedFile = <File>event.target.files[0];
     this.name = this.selectedFile.name;
+  }
+
+  changeYear(event) {
+    this.year = event.target.value;
   }
 
   submit(e) {
