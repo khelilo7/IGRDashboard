@@ -23,6 +23,7 @@ import { PredictionService } from "./services/prediction.service";
 import { ResultComponent } from "./components/prediction/result/result.component";
 import { UploadService } from "./services/upload.service";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { UserChangeService } from "./services/user-change.service";
 
 const appRoutes: Routes = [
   { path: "", redirectTo: "/predictions", pathMatch: "full" },
@@ -61,7 +62,13 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [UserService, StatsService, PredictionService, UploadService],
+  providers: [
+    UserService,
+    StatsService,
+    PredictionService,
+    UploadService,
+    UserChangeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

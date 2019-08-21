@@ -49,11 +49,11 @@
     header="Result"
     [delay]="5000"
     [autohide]="autohide"
-    (mouseenter)="autohide = true; bool = false"
+    (mouseenter)="bool = false"
     (mouseleave)="autohide = true"
     (hide)="autohide = false"
   >
-    <div *ngIf="autohide">
+    <div>
       {{ text }}
     </div>
   </ngb-toast>
